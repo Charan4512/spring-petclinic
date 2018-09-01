@@ -5,13 +5,13 @@ pipeline{
     stages{
         stage('Checkout') {
             steps {
-                git https://github.com/Charan4512/spring-petclinic.git
+                git 'https://github.com/Charan4512/spring-petclinic.git'
             }
         }
 
         stage('Build') {
              steps {
-                sh 'mvn clean package
+                sh 'mvn clean package'
                 junit '**/target/surefire-reports/TEST-*.xml'
              }
          }
