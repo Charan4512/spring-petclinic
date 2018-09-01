@@ -1,7 +1,7 @@
 pipeline{
     agent {
         label 'mac'
-        docker 'maven:3.5-alpine'
+        //docker 'maven:3.5-alpine' --> Can be used when we install docker in the agent
     }
     stages{
         stage('Checkout') {
@@ -14,6 +14,7 @@ pipeline{
              steps {
                 sh 'mvn clean package'
                 junit '**/target/surefire-reports/TEST-*.xml'
+                archiveArtifacts artifacts:'target/*.jar', fingerprint: true
              }
          }
     }
