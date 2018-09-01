@@ -1,5 +1,6 @@
 pipeline{
     agent {
+        label 'mac'
         docker 'maven:3.5-alpine'
     }
     stages{
